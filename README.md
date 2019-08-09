@@ -1,1 +1,3 @@
-# ClashRoyale
+# Clash Royale
+
+Using an API 
