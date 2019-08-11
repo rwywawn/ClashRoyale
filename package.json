@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rwywawn/ClashRoyale#readme",
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "xmlhttprequest": "^1.8.0"
   }
 }
