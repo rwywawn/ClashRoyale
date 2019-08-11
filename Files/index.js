@@ -6,9 +6,16 @@ var request = new XMLHttpRequest();
 
 const url = 'https://api.clashroyale.com/v1';
 
-endpoint = `${url}${testEndpoint}${apiKey}`;
-request.open('GET', endpoint, true);
-
-document.getElementById('word').innerHTML = response.json();
-
+endpoint = `${url}${testEndpoint}`;
+request.open('GET', endpoint, { 'Authorization': `Bearer ${apiKey}` });
+request.onload = function () {
+    
+    if (this.status === 200) {
+        
+        console.log(JSON.parse(this.responseText));
+    } else {
+        console.log(this.status)
+    }
+}
 request.send()
+
