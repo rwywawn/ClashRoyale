@@ -9,40 +9,23 @@ module.exports= function getToken(){
 
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const token = require('../.gitignore/token.js');
-const testEndpoint = '/clans/%23LGG99U0/members';
-const url = 'https://api.clashroyale.com/v1';
-const point = url + testEndpoint;
-const callApi = (endpoint, apiKey) => {
 
-    update.innerHTML = "Loading";
-    const request = new XMLHttpRequest();
-    return new Promise((resolve, reject) => {
-        request.open('GET', endpoint, true);
-        request.setRequestHeader('authorization', 'Bearer ' + apiKey);
-        request.setRequestHeader('Content-Type', `application/json`);
-        request.onload = function () {
-            if (this.status === 200) {
-                resolve(request)
-            } else {
-                reject(this.responseText)
-            }}
-        request.send();
-   
-        
-    })
-}
+const submit = document.getElementById('submit');
+
+
+
 const makeTable = (request) => {
-    update.innerHTML = "Done";
-    const parsed = (JSON.parse(request.responseText))
-    var table = document.getElementById("table");
-    parsed.items.forEach(function (member) {
+    
+    const parsed = JSON.parse(request).items
+    const table = document.getElementById("table");
+    parsed.forEach(function (member) {
         var row = document.createElement("tr");
         Object.entries(member).forEach(function (key) {
             if ((key[0] !== "clanRank") && (key[0] !== "previousClanRank") && (key[0] !== "clanChestPoints")) {
                 if (key[0] === "arena") {
                     key[1] = key[1].name;
                 }
-                var cell = document.createElement("td");
+                const cell = document.createElement("td");
                 cell.textContent = key[1];
                 row.appendChild(cell);
             }
@@ -52,13 +35,36 @@ const makeTable = (request) => {
 }
 
 // website
-let update = document.getElementById("word");
-
-update.onclick = () => {
-    callApi(point, token()).then(makeTable).catch(function (error) {
-        update.innerHTML=('Something went wrong', error)
+submit.onclick = async () => {
+    const clanTag = document.getElementById('clanTag').value;
+    const clanReq = {
+        "clanTag": clanTag
+    }
+    const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+    const request = new XMLHttpRequest();
+    
+    const callApi = new Promise(function(resolve, reject) {
+        request.open('POST', "http://localhost:3000/api/clans", true);
+        request.setRequestHeader('Content-Type', `application/json`);
+        request.onload = function () {
+            if (this.status === 200 ) {
+                resolve(this.responseText)
+            
+            } else {
+                reject({ status: this.status, text: this.responseText })
+            }
+        }
+        request.send(JSON.stringify(clanReq));
+    })
+    
+    callApi.then(function (req) {
+        makeTable(req);
+    })
+    .catch(function (error) {
+        console.log('Error ' + error.status + " " + error.text);
     })
 }
+
 },{"../.gitignore/token.js":1,"xmlhttprequest":3}],3:[function(require,module,exports){
 (function (process,Buffer){
 /**

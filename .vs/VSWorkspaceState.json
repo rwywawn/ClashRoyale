@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Files"
+    "\\.gitignore",
+    "\\Frontend"
   ],
-  "SelectedNode": "\\Files\\index.js",
+  "SelectedNode": "\\Frontend\\package-lock.json",
   "PreviewInSolutionExplorer": true
 }
