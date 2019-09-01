@@ -7,27 +7,32 @@
     </head>
     <body>
         <div class="intro">
-            <h1>Hi</h1>
+            <h1 id="info">Hi</h1>
         </div>
         <div>
-            <form >
+            <form action="">
                 Clan Tag: <input type="text" id="clanTag" name="fname">
                 <input type="button" id="submit" value="Submit">
             </form>
         </div>
         <div class="tableStuff">
             <table id="table">
-                <tr>
-                    <td>Player Tag</td>
-                    <td>Name</td>
-                    <td>Role</td>
-                    <td>Last seen</td>
-                    <td>Level</td>
-                    <td>Trophies</td>
-                    <td>Arena</td>
-                    <td>Donations</td>
-                    <td>Cards Received</td>
-                </tr>
+                <thead id="tableHead">
+                    <tr>
+                        <td>Player Tag</td>
+                        <td>Name</td>
+                        <td>Role</td>
+                        <td>Last seen</td>
+                        <td>Level</td>
+                        <td>Trophies</td>
+                        <td>Arena</td>
+                        <td>Donations</td>
+                        <td>Cards Received</td>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
             </table>
         </div>
         <script src="../.gitignore/bundle.js"></script>

@@ -3,13 +3,19 @@ const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const token = require('../.gitignore/token.js');
 
 const submit = document.getElementById('submit');
-
+const text = document.getElementById('info');
 
 
 const makeTable = (request) => {
     
     const parsed = JSON.parse(request).items
-    const table = document.getElementById("table");
+    const table = document.getElementById("tableBody");
+    console.log(table.rows.length)
+    if (table.rows.length > 0) {
+        for (let x = table.rows.length-1 ; x >= 0; x--) {
+            table.deleteRow(x);
+        }
+    }
     parsed.forEach(function (member) {
         var row = document.createElement("tr");
         Object.entries(member).forEach(function (key) {
@@ -24,6 +30,7 @@ const makeTable = (request) => {
         });
         table.appendChild(row);
     });
+    text.innerHTML = "Done";
 }
 
 // website
@@ -32,6 +39,7 @@ submit.onclick = async () => {
     const clanReq = {
         "clanTag": clanTag
     }
+   
     const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
     const request = new XMLHttpRequest();
     
@@ -40,12 +48,12 @@ submit.onclick = async () => {
         request.setRequestHeader('Content-Type', `application/json`);
         request.onload = function () {
             if (this.status === 200) {
-                console.log(this.responseText)
+                
                 if (JSON.parse(this.responseText).status === 200) {
-                    console.log(JSON.parse(this.responseText).status)
+                   
                     resolve(JSON.parse(this.responseText).responseText)
                 } else {
-                    console.log(JSON.parse(this.responseText).status)
+                   
                     reject(JSON.parse(this.responseText))
                 }
             
@@ -60,6 +68,6 @@ submit.onclick = async () => {
         makeTable(req);
     })
     .catch(function (error) {
-        console.log('Error ' + error.status + " " + error.responseText);
+        text.innerHTML = ('Error ' + error.status + " " + error.responseText); 
     })
 }
