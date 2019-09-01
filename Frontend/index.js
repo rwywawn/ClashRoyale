@@ -39,8 +39,15 @@ submit.onclick = async () => {
         request.open('POST', "http://localhost:3000/api/clans", true);
         request.setRequestHeader('Content-Type', `application/json`);
         request.onload = function () {
-            if (this.status === 200 ) {
-                resolve(this.responseText)
+            if (this.status === 200) {
+                console.log(this.responseText)
+                if (JSON.parse(this.responseText).status === 200) {
+                    console.log(JSON.parse(this.responseText).status)
+                    resolve(JSON.parse(this.responseText).responseText)
+                } else {
+                    console.log(JSON.parse(this.responseText).status)
+                    reject(JSON.parse(this.responseText))
+                }
             
             } else {
                 reject({ status: this.status, text: this.responseText })
@@ -53,6 +60,6 @@ submit.onclick = async () => {
         makeTable(req);
     })
     .catch(function (error) {
-        console.log('Error ' + error.status + " " + error.text);
+        console.log('Error ' + error.status + " " + error.responseText);
     })
 }

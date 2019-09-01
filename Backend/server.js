@@ -22,7 +22,7 @@ app.post("/api/clans", async (req, res) => {
             request.setRequestHeader('Content-Type', `application/json`);
             request.onload = function () {
                 if (this.status === 200) {
-                    resolve(this.responseText)
+                    resolve({ responseText:this.responseText, status:this.status })
                 } else {
                     reject({ status: this.status, responseText: this.responseText })
                 }
