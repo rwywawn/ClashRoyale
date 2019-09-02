@@ -10,7 +10,7 @@ const makeTable = (request) => {
     
     const parsed = JSON.parse(request).items
     const table = document.getElementById("tableBody");
-    console.log(table.rows.length)
+   
     if (table.rows.length > 0) {
         for (let x = table.rows.length-1 ; x >= 0; x--) {
             table.deleteRow(x);
