@@ -1,8 +1,64 @@
-﻿body
-{
-    text-align:center;
-    -- asdfaafd comment
+@font-face {
+  font-family: 'supercell-magic';
+  src: "../frontend/supercell-magic.ttf";
 }
-table{
- margin:auto;
+
+* {
+
+}
+
+body {
+  text-align:center;
+  font-family: 'supercell-magic', sans-serif;
+}
+
+table {
+  margin:auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+tr {
+    -webkit-filter: brightness(100%);
+    font-size: 9px;
+}
+
+tr:hover {
+    -webkit-filter: brightness(85%);
+    /*-webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;*/
+}
+
+tr:nth-child(even) {background-color: #F8F4FB;}
+tr:nth-child(odd) {
+  background-color: white;
+}
+th {
+  background-color: #832FC2;
+  font-size: 12px;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+       0.5px 0.5px 0 #000,
+       0.5px 1px 0 #000,
+       -0.5px 0.5px 0 #000,
+       -0.5px 1px 0 #000;
+}
+td{
+  color: #444444;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.exp {
+  width: 30px;
+  height: 30px;
 }
