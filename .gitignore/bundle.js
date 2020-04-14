@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports= function getToken(){
-    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBlNzZiNzVhLWRlNjYtNGViZi05YzI1LTBlNGIyNDY0MDliNiIsImlhdCI6MTU2NTMwMTE1OCwic3ViIjoiZGV2ZWxvcGVyL2NiMDgxZjg3LTdiY2ItOTA4OC0zNTRlLWFkNDg5MjY0NzhkZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3MC41MC4xNS4yNCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.UBiBAigBoXWxBuiSlgo0y5GHgjX3WlZHK5CaNYuVT5PqBBUkuYNAawLwCkIodbzae7A-bVPNBjGb0Dc00ziQrA'
+    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjZmMmJjODNiLThmNWMtNDY1Mi1hYmJmLTgxY2YzMzMwMTZhOCIsImlhdCI6MTU4Njg0MDE0MCwic3ViIjoiZGV2ZWxvcGVyLzZiMzY2Zjk3LWJkOWEtMTY2ZC0xNzRmLWJmNDM1N2UzZmI2NCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxMTIuMTE5LjE3LjIzOCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.p8wYJZEgVznR7kL2127zVuE4kPY-6wxZWF_ForD9eiQdscSEV2s4Aadi1T3wJrC5mXy1SME26EM4AuNLR9S13w'
 };
 
 
@@ -15,7 +15,7 @@ const text = document.getElementById('info');
 
 
 const makeTable = (request) => {
-    
+
     const parsed = JSON.parse(request).items
     const table = document.getElementById("tableBody");
     console.log(table.rows.length)
@@ -47,36 +47,36 @@ submit.onclick = async () => {
     const clanReq = {
         "clanTag": clanTag
     }
-   
+
     const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
     const request = new XMLHttpRequest();
-    
+
     const callApi = new Promise(function(resolve, reject) {
         request.open('POST', "http://localhost:3000/api/clans", true);
         request.setRequestHeader('Content-Type', `application/json`);
         request.onload = function () {
             if (this.status === 200) {
-                
+
                 if (JSON.parse(this.responseText).status === 200) {
-                   
+
                     resolve(JSON.parse(this.responseText).responseText)
                 } else {
-                   
+
                     reject(JSON.parse(this.responseText))
                 }
-            
+
             } else {
                 reject({ status: this.status, text: this.responseText })
             }
         }
         request.send(JSON.stringify(clanReq));
     })
-    
+
     callApi.then(function (req) {
         makeTable(req);
     })
     .catch(function (error) {
-        text.innerHTML = ('Error ' + error.status + " " + error.responseText); 
+        text.innerHTML = ('Error ' + error.status + " " + error.responseText);
     })
 }
 
@@ -195,7 +195,7 @@ exports.XMLHttpRequest = function() {
   this.responseXML = "";
   this.status = null;
   this.statusText = null;
-  
+
   // Whether cross-site Access-Control requests should be made using
   // credentials such as cookies or authorization headers
   this.withCredentials = false;
@@ -4866,7 +4866,7 @@ var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode, f
 		self.url = response.url
 		self.statusCode = response.status
 		self.statusMessage = response.statusText
-		
+
 		response.headers.forEach(function (header, key){
 			self.headers[key.toLowerCase()] = header
 			self.rawHeaders.push(key, header)
