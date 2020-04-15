@@ -17,6 +17,8 @@ const makeTable = (request) => {
     }
     parsed.forEach(function (member) {
         var row = document.createElement("tr");
+        //var d = document.createElement("div");
+        //d.classList.add("highlight");
         Object.entries(member).forEach(function (key) {
             if ((key[0] !== "clanRank") && (key[0] !== "previousClanRank") && (key[0] !== "clanChestPoints")) {
                 if (key[0] === "arena") {
@@ -39,6 +41,8 @@ const makeTable = (request) => {
                 row.appendChild(cell);
             }
         });
+        //d.appendChild(row);
+        //table.appendChild(d);
         table.appendChild(row);
     });
     text.innerHTML = "Done";
@@ -86,6 +90,7 @@ submit.onclick = async () => {
         makeTable(req);
     })
     .catch(function (error) {
+        console.log(error)
         text.innerHTML = ('Error ' + error.status + " " + error.responseText);
     })
 }
