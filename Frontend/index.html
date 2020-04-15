@@ -1,41 +1,56 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Clash API</title>
-        <link rel="stylesheet" href="index.css" type="text/css">
-    </head>
-    <body>
-        <div class="intro">
-            <h1 id="info">Hi</h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>Clash API</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
+  </head>
+  <body>
+    <div class="intro">
+      <h1 id="info">Hi</h1>
+    </div>
+    <div>
+      <form action="">
+        Clan Tag: <input type="text" id="clanTag" name="fname">
+        <input type="button" id="submit" value="Submit">
+      </form>
+      </div>
+      <div id="user-container">
+        <div class="row" id="template">
+          <div class='flex-row'>
+            <div class='left'>
+              <div class="name-container">
+                <div class="name">Club1911</div>
+                <div class="id-container">
+                  <div class="tag">#2RJGL9RUY</div>
+                  <div class="role">coLeader</div>
+                </div>
+              </div>
+              <div class="arena">Master III</div>
+              <div class="expLevel">
+                <img src="../frontend/experience-levels/13.png" class="exp">
+              </div>
+            </div>
+          <div class="lastSeen">Apr 15, 15:06</div>
+          <div class='right'>
+            <div class="donations-container">
+              <div class="donations-label">Donated</div>
+              <div class="donations">567</div>
+            </div>
+            <div class="donations-container">
+              <div class="donations-label">Received</div>
+              <div class="donationsReceived">280</div>
+            </div>
+            <div class="trophies-container">
+              <div class="trophies">5985</div>
+              <img src="../frontend/trophies.png" class="trophies-img">
+            </div>
+          </div>
         </div>
-        <div>
-            <form action="">
-                Clan Tag: <input type="text" id="clanTag" name="fname">
-                <input type="button" id="submit" value="Submit">
-            </form>
-        </div>
-        <div class="tableStuff">
-            <table id="table">
-                <thead id="tableHead">
-                    <tr>
-                        <th>Player Tag</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Last Seen</th>
-                        <th>Level</th>
-                        <th>Trophies</th>
-                        <th>Arena</th>
-                        <th>Donated</th>
-                        <th>Received</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-
-                </tbody>
-            </table>
-        </div>
-        <script src="../.gitignore/bundle.js"></script>
-        <script src="../frontend/debug.js"></script>
-    </body>
+        <div class='highlight'></div>
+      </div>
+    </div>
+    <script src="../.gitignore/bundle.js"></script>
+    <script src="../frontend/debug.js"></script>
+  </body>
 </html>

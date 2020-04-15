@@ -8,18 +8,16 @@ const text = document.getElementById('info');
 const makeTable = (request) => {
 
     const parsed = JSON.parse(request).items
-    const table = document.getElementById("tableBody");
+    const table = document.getElementById("user-container");
 
-    if (table.rows.length > 0) {
-        for (let x = table.rows.length-1 ; x >= 0; x--) {
-            table.deleteRow(x);
-        }
-    }
+    var i = 0;
     parsed.forEach(function (member) {
-        var row = document.createElement("tr");
-        //var d = document.createElement("div");
-        //d.classList.add("highlight");
+
+        var row = document.getElementById("template").cloneNode(true);
+        row.id = 'user'+i;
+
         Object.entries(member).forEach(function (key) {
+            console.log(key);
             if ((key[0] !== "clanRank") && (key[0] !== "previousClanRank") && (key[0] !== "clanChestPoints")) {
                 if (key[0] === "arena") {
                     key[1] = key[1].name;
@@ -27,7 +25,7 @@ const makeTable = (request) => {
                 if (key[0] === "lastSeen"){
                     key[1] = parseDate(key[1]);
                 }
-                const cell = document.createElement("td");
+                const cell = row.querySelector('.'+key[0]);
                 cell.textContent = key[1];
 
                 if (key[0] === "expLevel"){
@@ -37,13 +35,10 @@ const makeTable = (request) => {
                   cell.textContent = '';
                   cell.appendChild(img);
                 }
-
-                row.appendChild(cell);
             }
         });
-        //d.appendChild(row);
-        //table.appendChild(d);
         table.appendChild(row);
+        i++
     });
     text.innerHTML = "Done";
 }

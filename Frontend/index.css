@@ -23,11 +23,11 @@ table {
   padding: 5px;
 }
 
-tr {
+tr, .row {
     -webkit-filter: brightness(100%);
-    font-size: 9px;
+    font-size: 8px;
 
-    background-color: #ddd;
+    background-color: #ccc;
     border-radius: 5px;
 
     overflow: hidden;
@@ -41,7 +41,7 @@ tr {
 
 }
 
-tr:hover {
+tr:hover, .row:hover {
     -webkit-filter: brightness(85%);
 
 }
@@ -85,9 +85,140 @@ th, td {
   width: 30px;
   height: 30px;
 }
-#highlight{
-  border:2px solid blue;
-  height: 100%;
+.trophies-img {
+  width: 25px;
+  height: 25px;
+  margin: 2.5px;
+}
 
-  vertical-align: top;
+.row {
+  width:800px;
+  height:40px;
+  color: #444;
+  margin-top: 15px;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+}
+.highlight{
+  position: relative;
+  margin-top: -35px;
+  width: 796px;
+  height: 60%;
+  margin-left: 2px;
+
+  border-radius: 5px;
+  background-color: #ddd;
+  z-index: -3;
+
+}
+
+.name{
+  padding-right:2px;
+  font-size: 15px;
+  color: white;
+  -webkit-text-stroke: 1.2px black;
+  letter-spacing: -0.11em;
+  text-shadow:
+       0.6px -0.6px 0 #000,
+       0.6px 2px 0 #000,
+       -0.6px -0.6px 0 #000,
+       -0.6px 2px 0 #000;
+
+}
+.name-container{
+  display: flex;
+  flex-direction: row;
+}
+.id-container{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.expLevel{
+}
+.role{
+}
+.tag{
+}
+.arena{
+}
+
+.left{
+  display:flex;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+}
+.right{
+  display:flex;
+  flex-direction: row;
+  text-align: right;
+  align-items: center;
+}
+.right > *{
+  margin-right: 10px;
+}
+.left > *{
+  margin-left: 10px;
+}
+
+.donations-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donations, .donationsReceived{
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 50px;
+  height: 20px;
+
+  vertical-align: middle;
+  line-height: 22px;
+  text-align: center;
+}
+
+.trophies-container{
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100px;
+  height: 30px;
+
+  border: 2px solid #ffffcc;
+  border-radius: 5px;
+
+  vertical-align: middle;
+  line-height: 32px;
+  text-align: center;
+
+  font-size: 15px;
+  color: white;
+  -webkit-text-stroke: 1.2px black;
+  letter-spacing: -0.11em;
+  text-shadow:
+       0.6px -0.6px 0 #000,
+       0.6px 2px 0 #000,
+       -0.6px -0.6px 0 #000,
+       -0.6px 2px 0 #000;
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+.donations-label{
+  color: #666;
+}
+#user-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#template{
+  display: none;
 }
