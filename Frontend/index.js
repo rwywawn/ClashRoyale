@@ -1,6 +1,6 @@
 
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-const token = require('../.gitignore/token.js');
+const token = require('../token.js');
 
 const submit = document.getElementById('submit');
 const text = document.getElementById('info');

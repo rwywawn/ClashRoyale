@@ -11,7 +11,7 @@ app.post("/api/clans", async (req, res) => {
     
     const clanTag = req.body.clanTag;
     const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-    const token = require('../.gitignore/token.js');
+    const token = require('../token.js');
     const url = 'https://api.clashroyale.com/v1';
     const point = url +"/clans/%23"+ clanTag + "/members";
     const callApi = (endpoint, apiKey) => {
